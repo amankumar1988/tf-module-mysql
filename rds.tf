@@ -1,6 +1,7 @@
 # Create RDS instance
 
 resource "aws_db_instance" "mysql" {
+  identifier              = "robot-${var.ENV}"
   allocated_storage       = 10
   db_name                 = "mydb"
   engine                  = "mysql"
