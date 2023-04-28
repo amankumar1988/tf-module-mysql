@@ -1,6 +1,6 @@
 resource "null_resource" "schema" {
 
-  depends_on = [ aws.aws_db_instance.mysql ]
+#   depends_on = [ aws.aws_db_instance.mysql ]
 
   provisioner "local-exec" {
         command = <<EOF
