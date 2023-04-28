@@ -12,7 +12,7 @@ resource "aws_db_instance" "mysql" {
   parameter_group_name    = aws_db_parameter_group.mysql_pg.name
   skip_final_snapshot     = true   # this will ensure it won't take snapshot when you destroy
   db_subnet_group_name    = aws_db_subnet_group.mysql_subnet_group.name
-  vpc_security_groups_id  = [aws_security_group.allow_mysql.id]
+  vpc_security_groups_ids  = [aws_security_group.allow_mysql.id]
 }
 
 # # Creates Parameter Group
