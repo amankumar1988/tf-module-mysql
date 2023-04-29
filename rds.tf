@@ -7,8 +7,8 @@ resource "aws_db_instance" "mysql" {
   engine                  = "mysql"
   engine_version          = var.MYSQL_RDS_VERSION
   instance_class          = var.MYSQL_RDS_INSTANCE_TYPE
-  username                = "admin1"
-  password                = "RoboShop1"
+  username                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["RDS_USERNAME"]
+  password                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["RDS_PASSWORD"]
   parameter_group_name    = aws_db_parameter_group.mysql_pg.name
   skip_final_snapshot     = true   # this will ensure it won't take snapshot when you destroy
   db_subnet_group_name    = aws_db_subnet_group.mysql_subnet_group.name
