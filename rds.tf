@@ -30,6 +30,6 @@ resource "aws_db_subnet_group" "mysql_subnet_group" {
   subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS
 
   tags = {
-    Name = "My DB subnet group"
+    Name = "robot-${var.ENV}-mysql-subet-group"
   }
 }
